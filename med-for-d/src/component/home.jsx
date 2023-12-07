@@ -1,9 +1,50 @@
-import React from 'react'
+import React, { useState } from "react";
 
-function home() {
+const DiseaseSearch = () => {
+  const [searchTerm, setSearchTerm] = useState("");
+  const [diseaseData, setDiseaseData] = useState(null);
+
+  };
+
+  const handleSearch = () => {
+    if (searchTerm.trim() !== "") {
+      fetchDiseaseData(searchTerm);
+    }
+  };
+
   return (
-    <div>home</div>
-  )
-}
+    <div>
+      <div>
+        <input
+          type="text"
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+        />
+        <button onClick={handleSearch}>Search</button>
+      </div>
 
-export default home
+      {diseaseData && (
+        <div>
+          <div>
+            <strong>Disease:</strong> {diseaseData.diseaseName}
+          </div>
+          <div>
+            <strong>Disease Symptoms:</strong> {diseaseData.symptoms}
+          </div>
+          <div>
+            <strong>Disease Causes:</strong>
+            <div>
+              <h4>Causes:</h4>
+              <p>{diseaseData.causes}</p>
+            </div>
+          </div>
+          <div>
+            <strong>Recommended Medicine:</strong> {diseaseData.medicine}
+          </div>
+        </div>
+      )}
+    </div>
+  );
+};
+
+export default DiseaseSearch;

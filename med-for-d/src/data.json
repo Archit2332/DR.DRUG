@@ -1,0 +1,65 @@
+{
+    "medicinalData": [
+      {
+        "diseaseName": "Common Cold",
+        "symptoms": ["Runny nose", "Sneezing", "Coughing", "Sore throat"],
+        "causes": ["Viral infection"],
+        "recommendedMedicine": ["Acetaminophen", "Ibuprofen", "Decongestants"]
+      },
+      {
+        "diseaseName": "Influenza (Flu)",
+        "symptoms": ["Fever", "Chills", "Muscle aches", "Fatigue"],
+        "causes": ["Influenza virus"],
+        "recommendedMedicine": ["Antiviral medications", "Pain relievers", "Antipyretics"]
+      },
+      {
+        "diseaseName": "Allergies",
+        "symptoms": ["Itchy eyes", "Runny nose", "Sneezing", "Rashes"],
+        "causes": ["Allergens"],
+        "recommendedMedicine": ["Antihistamines", "Decongestants", "Corticosteroids"]
+      },
+      {
+        "diseaseName": "Migraine",
+        "symptoms": ["Severe headache", "Nausea", "Sensitivity to light"],
+        "causes": ["Genetic factors", "Environmental factors"],
+        "recommendedMedicine": ["Triptans", "Analgesics", "Anti-nausea medications"]
+      },
+      {
+        "diseaseName": "Hypertension (High Blood Pressure)",
+        "symptoms": ["Headache", "Fatigue", "Dizziness"],
+        "causes": ["Genetic factors", "Unhealthy lifestyle"],
+        "recommendedMedicine": ["Diuretics", "Beta-blockers", "ACE inhibitors"]
+      },
+      {
+        "diseaseName": "Type 2 Diabetes",
+        "symptoms": ["Increased thirst", "Frequent urination", "Fatigue"],
+        "causes": ["Genetics", "Obesity", "Insulin resistance"],
+        "recommendedMedicine": ["Metformin", "Sulfonylureas", "Insulin"]
+      },
+      {
+        "diseaseName": "Asthma",
+        "symptoms": ["Shortness of breath", "Coughing", "Wheezing"],
+        "causes": ["Genetic factors", "Environmental factors"],
+        "recommendedMedicine": ["Bronchodilators", "Inhaled corticosteroids", "Leukotriene modifiers"]
+      },
+      {
+        "diseaseName": "Arthritis",
+        "symptoms": ["Joint pain", "Swelling", "Stiffness"],
+        "causes": ["Age", "Genetic factors", "Autoimmune disorders"],
+        "recommendedMedicine": ["Nonsteroidal anti-inflammatory drugs (NSAIDs)", "Disease-modifying antirheumatic drugs (DMARDs)"]
+      },
+      {
+        "diseaseName": "Depression",
+        "symptoms": ["Persistent sadness", "Loss of interest", "Fatigue"],
+        "causes": ["Genetics", "Chemical imbalances in the brain", "Trauma"],
+        "recommendedMedicine": ["Antidepressants", "Psychotherapy"]
+      },
+      {
+        "diseaseName": "Gastroenteritis",
+        "symptoms": ["Diarrhea", "Vomiting", "Abdominal cramps"],
+        "causes": ["Viral or bacterial infection"],
+        "recommendedMedicine": ["Antibiotics (for bacterial infections)", "Anti-diarrheal medications", "Fluid replacement"]
+      }
+    ]
+  }
+  

@@ -1,11 +1,20 @@
+import '../stylehome'
 import React, { useState } from "react";
+import diseaseData from "../data.json";
 
 const DiseaseSearch = () => {
   const [searchTerm, setSearchTerm] = useState("");
-  const [diseaseData, setDiseaseData] = useState(null);
+  const [foundDisease, setFoundDisease] = useState(null);
 
+  const fetchDiseaseData = async (diseaseName) => {
+    const foundDisease = diseaseData.medicinalData.find(
+      (data) => data.diseaseName.toLowerCase() === diseaseName.toLowerCase()
+    );
+    
+    console.log("foundDisease:", foundDisease);
+    setFoundDisease(foundDisease);
   };
-
+  
   const handleSearch = () => {
     if (searchTerm.trim() !== "") {
       fetchDiseaseData(searchTerm);
@@ -13,38 +22,51 @@ const DiseaseSearch = () => {
   };
 
   return (
-    <div>
-      <div>
-        <input
-          type="text"
-          value={searchTerm}
-          onChange={(e) => setSearchTerm(e.target.value)}
-        />
-        <button onClick={handleSearch}>Search</button>
-      </div>
+<div>
+  <main>
+  <div class="container">
+    <div class="search-box">
+      <div class="search-icon"><i class="fa fa-search search-icon"></i></div>
+      <form action="" class="search-form">
+        <input type="text" placeholder="Search" id="search" autocomplete="off" value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)}/>
+      </form>
+      <svg className="search-border" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" xmlnsA="http://ns.adobe.com/AdobeSVGViewerExtensions/3.0/" x="0px" y="0px" viewBox="0 0 671 111" style={{ enableBackground: 'new 0 0 671 111' }} xmlSpace="preserve">
 
-      {diseaseData && (
+          <path class="border" d="M335.5,108.5h-280c-29.3,0-53-23.7-53-53v0c0-29.3,23.7-53,53-53h280"/>
+          <path class="border" d="M335.5,108.5h280c29.3,0,53-23.7,53-53v0c0-29.3-23.7-53-53-53h-280"/>
+        </svg>
+      <div class="go-icon" onClick={handleSearch} ><i class="fa fa-arrow-right"></i></div>
+    </div>
+
+      {foundDisease && (
         <div>
           <div>
-            <strong>Disease:</strong> {diseaseData.diseaseName}
+            <strong>Disease:</strong> {foundDisease.diseaseName}
           </div>
           <div>
-            <strong>Disease Symptoms:</strong> {diseaseData.symptoms}
+            <strong>Disease Symptoms:</strong> {foundDisease.symptoms.join(",")}
           </div>
           <div>
             <strong>Disease Causes:</strong>
             <div>
               <h4>Causes:</h4>
-              <p>{diseaseData.causes}</p>
+              <p>{foundDisease.causes.join(", ")}</p>
             </div>
           </div>
           <div>
-            <strong>Recommended Medicine:</strong> {diseaseData.medicine}
+          <strong>Recommended Medicine:</strong>{" "}
+            {foundDisease.recommendedMedicine.join(", ")}
           </div>
         </div>
       )}
+        </div>
+      </main>
     </div>
   );
 };
 
 export default DiseaseSearch;
+
+
+
+

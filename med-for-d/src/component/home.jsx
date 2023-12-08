@@ -1,11 +1,32 @@
-import '../stylehome'
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import diseaseData from "../data.json";
+import $ from 'jquery';
 
 const DiseaseSearch = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [foundDisease, setFoundDisease] = useState(null);
 
+  useEffect(() => {
+    $("#search").focus(() => {
+      $(".search-box").addClass("border-searching");
+      $(".search-icon").addClass("si-rotate");
+    });
+
+    $("#search").blur(() => {
+      $(".search-box").removeClass("border-searching");
+      $(".search-icon").removeClass("si-rotate");
+    });
+
+    $("#search").keyup(() => {
+      if ($("#search").val().length > 0) {
+        $(".go-icon").addClass("go-in");
+      } else {
+        $(".go-icon").removeClass("go-in");
+      }
+
+      handleSearch(); 
+    });
+  }, []);
   const fetchDiseaseData = async (diseaseName) => {
     const foundDisease = diseaseData.medicinalData.find(
       (data) => data.diseaseName.toLowerCase() === diseaseName.toLowerCase()
@@ -24,18 +45,18 @@ const DiseaseSearch = () => {
   return (
 <div>
   <main>
-  <div class="container">
-    <div class="search-box">
-      <div class="search-icon"><i class="fa fa-search search-icon"></i></div>
-      <form action="" class="search-form">
+  <div className="container">
+    <div className="search-box">
+      <div className="search-icon"><i className="fa fa-search search-icon"></i></div>
+      <form action="" className="search-form" onSubmit={(e)=>e.preventDefault()}>
         <input type="text" placeholder="Search" id="search" autocomplete="off" value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)}/>
       </form>
-      <svg className="search-border" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" xmlnsA="http://ns.adobe.com/AdobeSVGViewerExtensions/3.0/" x="0px" y="0px" viewBox="0 0 671 111" style={{ enableBackground: 'new 0 0 671 111' }} xmlSpace="preserve">
+      <svg classNameName="search-border" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" xmlnsA="http://ns.adobe.com/AdobeSVGViewerExtensions/3.0/" x="0px" y="0px" viewBox="0 0 671 111" style={{ enableBackground: 'new 0 0 671 111' }} xmlSpace="preserve">
 
-          <path class="border" d="M335.5,108.5h-280c-29.3,0-53-23.7-53-53v0c0-29.3,23.7-53,53-53h280"/>
-          <path class="border" d="M335.5,108.5h280c29.3,0,53-23.7,53-53v0c0-29.3-23.7-53-53-53h-280"/>
+          <path className="border" d="M335.5,108.5h-280c-29.3,0-53-23.7-53-53v0c0-29.3,23.7-53,53-53h280"/>
+          <path className="border" d="M335.5,108.5h280c29.3,0,53-23.7,53-53v0c0-29.3-23.7-53-53-53h-280"/>
         </svg>
-      <div class="go-icon" onClick={handleSearch} ><i class="fa fa-arrow-right"></i></div>
+      <div className="go-icon" onClick={handleSearch} ><i className="fa fa-arrow-right"></i></div>
     </div>
 
       {foundDisease && (

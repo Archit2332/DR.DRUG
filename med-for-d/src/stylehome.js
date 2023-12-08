@@ -16,6 +16,7 @@ $(document).ready(function() {
       } else {
         $(".go-icon").removeClass("go-in");
       }
+    
     });
   
     $(".go-icon").click(function() {

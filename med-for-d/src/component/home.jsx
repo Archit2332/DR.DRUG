@@ -1,32 +1,10 @@
-import React, { useState,useEffect } from "react";
+import React, { useState} from "react";
 import diseaseData from "../data.json";
-import $ from 'jquery';
 
 const DiseaseSearch = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [foundDisease, setFoundDisease] = useState(null);
 
-  useEffect(() => {
-    $("#search").focus(() => {
-      $(".search-box").addClass("border-searching");
-      $(".search-icon").addClass("si-rotate");
-    });
-
-    $("#search").blur(() => {
-      $(".search-box").removeClass("border-searching");
-      $(".search-icon").removeClass("si-rotate");
-    });
-
-    $("#search").keyup(() => {
-      if ($("#search").val().length > 0) {
-        $(".go-icon").addClass("go-in");
-      } else {
-        $(".go-icon").removeClass("go-in");
-      }
-
-      handleSearch(); 
-    });
-  }, []);
   const fetchDiseaseData = async (diseaseName) => {
     const foundDisease = diseaseData.medicinalData.find(
       (data) => data.diseaseName.toLowerCase() === diseaseName.toLowerCase()

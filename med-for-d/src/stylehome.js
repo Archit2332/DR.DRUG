@@ -19,8 +19,8 @@ $(document).ready(function() {
     
     });
   
-    $(".go-icon").click(function() {
-      $(".search-form").submit();
-    });
+    // $(".go-icon").click(function() {
+    //   $(".search-form").submit();
+    // });
   });
   

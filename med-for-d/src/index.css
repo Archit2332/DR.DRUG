@@ -11,7 +11,12 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-/* style for home.jsx */
+
+
+
+     /* style for home.jsx */
+
+/* searchbar design */
 html, body {
   font-family: 'Montserrat Alternates', sans-serif;
   color: #FFFFFF;
@@ -199,3 +204,67 @@ h2 {
 #search:-moz-placeholder {color: #FFFFFF;}
 #search::-moz-selection {color: #FFFFFF; background: rgba(0,0,0,0.25);}
 #search::selection {color: #FFFFFF; background: rgba(0,0,0,0.25);}
+
+
+
+/* solution container design */
+.result-container{
+  margin-top: -50px;
+  margin-left: -300px;
+  height: 500px;
+  width: 1450px;
+}
+.disease-name{
+ display: inline-block;
+ margin-left: 10px;
+ color:cornsilk;
+ text-shadow: 0 0 10px grey;
+ font-style: italic;
+}
+strong{
+  font-size: xx-large;
+  text-decoration: underline;
+}
+.solution-container{
+  height: 434px;
+  width: 1450px;
+  display: flex;
+  justify-content:space-around;
+}
+.symptoms-container, .cause-contaoner ,.med-container{
+  border: 3px solid white;
+  border-radius: 20px;
+  height: 400px;
+  width: 320px;
+  border: 1px solid rgba(255, 255, 255, .25);
+  border-radius: 20px;
+  background-color: rgba(255, 255, 255, 0.45);
+  box-shadow: 0 0 10px 10px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(15px);
+} 
+.title{
+  height: 100px;
+  width:320px ;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+h2{
+  margin: 5px;
+  color: rgb(122, 24, 122);
+  text-shadow: 5px 5px 1px grey;
+  font-weight: bold;
+}
+span{
+  height: 300px;
+  width: 320px;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items:flex-start;
+
+}
+li{
+  line-height: 50px;
+  color:rgb(30, 35, 34) ;
+}

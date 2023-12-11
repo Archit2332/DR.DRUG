@@ -232,13 +232,13 @@ strong{
   justify-content:space-around;
 }
 .symptoms-container, .cause-contaoner ,.med-container{
-  border: 3px solid white;
+  border: 3px solid black;
   border-radius: 20px;
   height: 400px;
   width: 320px;
   border: 1px solid rgba(255, 255, 255, .25);
   border-radius: 20px;
-  background-color: rgba(255, 255, 255, 0.45);
+  background-color: #fff;
   box-shadow: 0 0 10px 10px rgba(0, 0, 0, 0.25);
   backdrop-filter: blur(15px);
 } 
@@ -252,7 +252,7 @@ strong{
 h2{
   margin: 5px;
   color: rgb(122, 24, 122);
-  text-shadow: 5px 5px 1px grey;
+  text-shadow: 5px 5px 5px grey;
   font-weight: bold;
 }
 span{
@@ -267,4 +267,22 @@ span{
 li{
   line-height: 50px;
   color:rgb(30, 35, 34) ;
+}
+        /* suggestion box design */
+.suggestion-box{
+ height: 500px;
+ display: flex;
+ justify-content:baseline;
+ align-items:center;
+ flex-flow: column wrap;
+}
+.suggestion{
+  margin-top: 20px;
+  border: 3px solid white;
+  border-radius: 120px;
+  height: 40px;
+  width: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

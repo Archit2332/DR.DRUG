@@ -5,6 +5,7 @@ const DiseaseSearch = () => {
   const [toggle, setToggle] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
   const [foundDisease, setFoundDisease] = useState(null);
+  const [suggestions, setSuggestions] = useState([]);
 
   const fetchDiseaseData = async (diseaseName) => {
     const foundDisease = diseaseData.medicinalData.find(
@@ -20,6 +21,23 @@ const DiseaseSearch = () => {
     if (searchTerm.trim() !== "") {
       fetchDiseaseData(searchTerm);
     }
+  };
+
+  const handleInputChange = (e) => {
+    const value = e.target.value;
+    setSearchTerm(value);
+
+    // Filter suggestions based on the input
+    const filteredSuggestions = diseaseData.medicinalData.filter(
+      (data) =>
+        data.diseaseName.toLowerCase().includes(value.toLowerCase())
+    );
+    setSuggestions(filteredSuggestions);
+  };
+
+  const handleSuggestionClick = (suggestion) => {
+    setSearchTerm(suggestion.diseaseName);
+    setSuggestions([]);
   };
 
   return (
@@ -40,13 +58,13 @@ const DiseaseSearch = () => {
                   type="text"
                   placeholder="Search"
                   id="search"
-                  autocomplete="off"
+                  autoComplete="off"
                   value={searchTerm}
-                  onChange={(e) => setSearchTerm(e.target.value)}
+                  onChange={handleInputChange}
                 />
               </form>
               <svg
-                classNameName="search-border"
+                className="search-border"
                 version="1.1"
                 xmlns="http://www.w3.org/2000/svg"
                 xmlnsXlink="http://www.w3.org/1999/xlink"
@@ -69,12 +87,26 @@ const DiseaseSearch = () => {
               <div className="go-icon" onClick={handleSearch}>
                 <i className="fa fa-arrow-right"></i>
               </div>
+              {suggestions.length > 0 && (
+                <div className="suggestion-box">
+                  {suggestions.map((suggestion, index) => (
+                    <div
+                    
+                      key={index}
+                      className="suggestion"
+                      onClick={() => handleSuggestionClick(suggestion)}
+                    >
+                      {suggestion.diseaseName}
+                    </div>
+                  ))}
+                </div>
+              )}
             </div>
           )}
 
           {foundDisease && (
             <div className="result-container">
-               <strong>Disease:</strong> 
+              <strong>Disease:</strong>
               <div className="disease-name">
                 <h1>{foundDisease.diseaseName}</h1>
               </div>
@@ -84,11 +116,11 @@ const DiseaseSearch = () => {
                     <h2>Symptoms</h2>
                   </div>
                   <span>
-                 <ul>
-                  {foundDisease.symptoms.map((symptom,index)=>(
-                    <li key={index}>{symptom}</li>
-                  ))}
-                 </ul>
+                    <ul>
+                      {foundDisease.symptoms.map((symptom, index) => (
+                        <li key={index}>{symptom}</li>
+                      ))}
+                    </ul>
                   </span>
                 </div>
                 <div className="cause-contaoner">
@@ -96,20 +128,23 @@ const DiseaseSearch = () => {
                     <h2>Causes</h2>
                   </div>
                   <span>
-                    <ul>{foundDisease.causes.map((cause,i)=>(
-                      <li key={i}>{cause}</li>
-                    ))}</ul>
+                    <ul>
+                      {foundDisease.causes.map((cause, i) => (
+                        <li key={i}>{cause}</li>
+                      ))}
+                    </ul>
                   </span>
                 </div>
-                {/* </div> */}
                 <div className="med-container">
                   <div className="title">
                     <h2>Recommended Medicine</h2>
                   </div>
                   <span>
-                    <ul>{foundDisease.recommendedMedicine.map((medicine,index)=>(
-                      <li key={index}>{medicine}</li>
-                    ))}</ul>
+                    <ul>
+                      {foundDisease.recommendedMedicine.map((medicine, index) => (
+                        <li key={index}>{medicine}</li>
+                      ))}
+                    </ul>
                   </span>
                 </div>
               </div>

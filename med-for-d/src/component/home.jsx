@@ -87,9 +87,10 @@ const DiseaseSearch = () => {
               <div className="go-icon" onClick={handleSearch}>
                 <i className="fa fa-arrow-right"></i>
               </div>
+            
               {suggestions.length > 0 && (
                 <div className="suggestion-box">
-                  {suggestions.map((suggestion, index) => (
+                  {suggestions.slice(0,6).map((suggestion, index) => (
                     <div
                     
                       key={index}

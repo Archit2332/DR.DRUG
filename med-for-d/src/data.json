@@ -619,7 +619,7 @@
     "recommendedMedicine": ["Selective serotonin reuptake inhibitors (SSRIs)", "Benzodiazepines", "Therapy"]
     },
     {
-      "diseaseName": "Common Cold",
+      "diseaseName": "Cold",
       "symptoms": ["Runny or stuffy nose", "Cough", "Sneezing"],
       "causes": ["Viral infection", "Rhino-viruses"],
       "recommendedMedicine": ["Rest", "Hydration", "Symptomatic relief"]
